@@ -1,11 +1,11 @@
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (mySprite.overlapsWith(mySprite2)) {
+    if (mySprite.overlapsWith(Bug2)) {
         game.over(true)
     } else {
         info.changeLifeBy(-1)
     }
 })
-let mySprite2: Sprite = null
+let Bug2: Sprite = null
 let mySprite: Sprite = null
 scene.setBackgroundImage(img`
     9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
@@ -148,7 +148,25 @@ mySprite = sprites.create(img`
     . . f 4 4 f 4 f f 4 f 4 4 f . . 
     `, SpriteKind.Player)
 mySprite.setPosition(80, 86)
-mySprite2 = sprites.create(img`
+let mySprite2 = sprites.create(img`
+    . . . . . f . . . . f . . . . . 
+    . . f f . . f . . f . . f f . . 
+    . f 3 3 f . . f f . . f 3 3 f . 
+    f 3 a 3 3 f . f f . f 3 3 a 3 f 
+    f 3 3 a a 3 f 5 5 f 3 a a 3 3 f 
+    f 3 3 3 a 3 f 5 5 f 3 a 3 3 3 f 
+    . f 3 f 3 f f 5 5 f f 3 f 3 f . 
+    . f f 3 f 3 f 5 5 f 3 f 3 f f . 
+    f 3 3 a 3 3 f 5 5 f 3 3 a 3 3 f 
+    f 3 3 a 3 3 f 5 5 f 3 3 a 3 3 f 
+    f 3 a a a 3 f 5 5 f 3 a a a 3 f 
+    f 3 a 3 a 3 f 5 5 f 3 a 3 a 3 f 
+    . f 3 3 3 f . f f . f 3 3 3 f . 
+    . . f f f . . . . . . f f f . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Food)
+Bug2 = sprites.create(img`
     . . . . . f . . . . f . . . . . 
     . . f f . . f . . f . . f f . . 
     . f 3 3 f . . f f . . f 3 3 f . 
@@ -167,5 +185,7 @@ mySprite2 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Food)
 mySprite2.setVelocity(120, 80)
+Bug2.setVelocity(-80, 60)
 mySprite2.setBounceOnWall(true)
-info.startCountdown(10)
+Bug2.setBounceOnWall(true)
+info.startCountdown(60)
